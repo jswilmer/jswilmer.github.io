@@ -5638,7 +5638,7 @@
       b.shareUrlFacebook = ko.computed(function() {
         var url;
         url = encodeURI(b.shareUrlDirect());
-        return "https://www.facebook.com/dialog/feed?app_id=408271179236250&link=" + (escape(url)) + "&picture=" + (encodeURI(b.shareUrlThumbnail())) + "&name=" + 'Silk – Interactive Generative Art' + "&caption=" + (escape('weavesilk.com')) + "&description=" + (encodeURI('Create beautiful flowing art with Silk.')) + "&redirect_uri=" + (encodeURI(url));
+        return "https://www.facebook.com/dialog/feed?app_id=408271179236250&link=" + (escape(url)) + "&picture=" + (encodeURI(b.shareUrlThumbnail())) + "&name=" + 'CommonThreads – Digital Pattern Generation Tool' + "&caption=" + (escape('weavesilk.com')) + "&description=" + (encodeURI('Create digital textile patterns for the CommonThreads community.')) + "&redirect_uri=" + (encodeURI(url));
       });
       b.shareUrlTwitter = ko.computed(function() {
         var url;
