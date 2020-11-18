@@ -4611,7 +4611,11 @@
       b.shareUrlEmail = ko.computed(function() {
         var url;
         url = b.shareUrlDirect();
+<<<<<<< HEAD
         return "mailto:?subject=" + (escape('Silk -- Interactive generative art')) + "&body=" + (escape('I just drew this on weavesilk.com: ' + url));
+=======
+        return "mailto:?subject=" + (escape('CommonThreads -- Digital Pattern Generation')) + "&body=" + (escape('I just drew this on weavesilk.com: ' + url));
+>>>>>>> parent of d771c4b... Update site.js
       });
       b.pristine = ko.observable(false || !b.showColorPicker());
       b.muted = (_ref2 = sound != null ? sound.muteSound : void 0) != null ? _ref2 : ko.observable(true);
@@ -4690,7 +4694,12 @@
       b.shareUrlFacebook = ko.computed(function() {
         var url;
         url = encodeURI(b.shareUrlDirect());
+<<<<<<< HEAD
         return "https://www.facebook.com/dialog/feed?app_id=408271179236250&link=" + (escape(url)) + "&picture=" + (encodeURI(b.shareUrlThumbnail())) + "&name=" + 'CommonThreads – Interactive Pattern Generation' + "&caption=" + (escape('commonthreads.online')) + "&description=" + (encodeURI('A digital pattern generation tool for the Common Threads platformS.')) + "&redirect_uri=" + (encodeURI(url));
+=======
+        return "https://www.facebook.com/dialog/feed?app_id=408271179236250&link=" + (escape(url)) + "&picture=" + (encodeURI(b.shareUrlThumbnail())) + "&name=" + 'CommonThreads – 
+        Pattern Generation' + "&caption=" + (escape('commonthreads.online')) + "&description=" + (encodeURI('A digital pattern generation tool for the Common Threads platformS.')) + "&redirect_uri=" + (encodeURI(url));
+>>>>>>> parent of d771c4b... Update site.js
       });
       b.shareUrlTwitter = ko.computed(function() {
         var url;
@@ -5558,7 +5567,7 @@
       b.shareUrlEmail = ko.computed(function() {
         var url;
         url = b.shareUrlDirect();
-        return "mailto:?subject=" + (escape('Silk -- Interactive generative art')) + "&body=" + (escape('I just drew this on weavesilk.com: ' + url));
+        return "mailto:?subject=" + (escape('CommonThreads -- Digital Pattern Making Tool')) + "&body=" + (escape('I just drew this on weavesilk.com: ' + url));
       });
       b.pristine = ko.observable(false || !b.showColorPicker());
       b.muted = (_ref2 = sound != null ? sound.muteSound : void 0) != null ? _ref2 : ko.observable(true);
@@ -5637,7 +5646,7 @@
       b.shareUrlFacebook = ko.computed(function() {
         var url;
         url = encodeURI(b.shareUrlDirect());
-        return "https://www.facebook.com/dialog/feed?app_id=408271179236250&link=" + (escape(url)) + "&picture=" + (encodeURI(b.shareUrlThumbnail())) + "&name=" + 'Silk – Interactive Generative Art' + "&caption=" + (escape('weavesilk.com')) + "&description=" + (encodeURI('Create beautiful flowing art with Silk.')) + "&redirect_uri=" + (encodeURI(url));
+        return "https://www.facebook.com/dialog/feed?app_id=408271179236250&link=" + (escape(url)) + "&picture=" + (encodeURI(b.shareUrlThumbnail())) + "&name=" + 'CommonThreads – Digital Pattern Generation Tool' + "&caption=" + (escape('weavesilk.com')) + "&description=" + (encodeURI('Create digital textile patterns for the CommonThreads community.')) + "&redirect_uri=" + (encodeURI(url));
       });
       b.shareUrlTwitter = ko.computed(function() {
         var url;
