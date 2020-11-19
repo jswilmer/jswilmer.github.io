@@ -145,7 +145,7 @@
 
       /* Silk-specific blackness hack! */
       ctx.fillStyle = '#000';
-      ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+      ctx.fillRect(5, 5, this.canvas.width, this.canvas.height);
 
       /* End hack */
       return ctx.putImageData(image, (this.canvas.width - prevWidth) / 2, (this.canvas.height - prevHeight) / 2);
@@ -230,31 +230,31 @@
         if (this.rotateAnglesAroundSymmetryAxis) {
           symmetryAxisAngle = Math.atan2(this.cx - p.y, this.cy - p.x);
         }
-        if (this.noiseForceScale) {
-          noiseValue = noise(this.noiseOffset + p.x * this.noiseSpaceScale + 1000000, this.noiseOffset + p.y * this.noiseSpaceScale + 1000000, this.noiseOffset + this.noiseTimeScale * this.time, this.noiseOctaves, this.noiseFallout);
-          noiseAngle = this.noiseAngleOffset + this.noiseAngleScale * noiseValue;
-          if (this.rotateAnglesAroundSymmetryAxis) {
-            noiseAngle += symmetryAxisAngle;
-          }
-          accx += this.noiseForceScale * Math.cos(noiseAngle);
-          accy += this.noiseForceScale * Math.sin(noiseAngle);
-        }
-        if (this.initialVelocityForceScale) {
-          accx += this.initialVelocityForceScale * p.inputVx;
-          accy += this.initialVelocityForceScale * p.inputVy;
-          if (p.inputVx && p.inputVy) {
-            p.inputVx *= this.initialVelocityDecay;
-            p.inputVy *= this.initialVelocityDecay;
-          }
-        }
-        if (this.windForceScale > 0) {
-          windAngle = this.windAngle;
-          if (this.rotateAnglesAroundSymmetryAxis) {
-            windAngle += symmetryAxisAngle;
-          }
-          accx += this.windForceScale * Math.cos(windAngle);
-          accy += this.windForceScale * Math.sin(windAngle);
-        }
+//         if (this.noiseForceScale) {
+//           noiseValue = noise(this.noiseOffset + p.x * this.noiseSpaceScale + 1000000, this.noiseOffset + p.y * this.noiseSpaceScale + 1000000, this.noiseOffset + this.noiseTimeScale * this.time, this.noiseOctaves, this.noiseFallout);
+//           noiseAngle = this.noiseAngleOffset + this.noiseAngleScale * noiseValue;
+//           if (this.rotateAnglesAroundSymmetryAxis) {
+//             noiseAngle += symmetryAxisAngle;
+//           }
+//           accx += this.noiseForceScale * Math.cos(noiseAngle);
+//           accy += this.noiseForceScale * Math.sin(noiseAngle);
+//         }
+//         if (this.initialVelocityForceScale) {
+//           accx += this.initialVelocityForceScale * p.inputVx;
+//           accy += this.initialVelocityForceScale * p.inputVy;
+//           if (p.inputVx && p.inputVy) {
+//             p.inputVx *= this.initialVelocityDecay;
+//             p.inputVy *= this.initialVelocityDecay;
+//           }
+//         }
+//         if (this.windForceScale > 0) {
+//           windAngle = this.windAngle;
+//           if (this.rotateAnglesAroundSymmetryAxis) {
+//             windAngle += symmetryAxisAngle;
+//           }
+//           accx += this.windForceScale * Math.cos(windAngle);
+//           accy += this.windForceScale * Math.sin(windAngle);
+//         }
         p.x += (p.x - p.px) * this.friction + accx;
         p.y += (p.y - p.py) * this.friction + accy;
         p.px = p.x;
@@ -443,7 +443,7 @@
 
     Silk.prototype.setSparks = function(sparks) {
       this.sparks = sparks;
-      return this.sparkle = true;
+      return this.sparkle = false;
     };
 
     Silk.prototype.sparkleLine = function() {
@@ -493,45 +493,45 @@
       completed: false,
       startDrawingOnceCompleted: false,
       stopDrawingOnceCompleted: false,
-      brushScale: 10,
+      brushScale: 3,
       scaleLineWidth: true,
-      startLife: 1000,
-      startOpacity: 1,
+      startLife: 200,
+      startOpacity: .5,
       color: '#276f9b',
       highlightColor: '#276f9b',
       highlightMode: 'velocity',
       eraserColor: '#000000',
-      velocityColorScaleExponent: 0,
+      velocityColorScaleExponent: 1,
       velocityColorScaleDomainLow: 0,
-      velocityColorScaleDomainHigh: 0,
+      velocityColorScaleDomainHigh: 300,
       timeColorScaleDomainLow: 0,
-      timeColorScaleDomainHigh: 0,
+      timeColorScaleDomainHigh: 350,
       timeColorScaleTime: 0,
       compositeOperation: 'lighter',
       noiseForceScale: 0,
-      noiseSpaceScale: 0,
-      noiseTimeScale: 0,
+      noiseSpaceScale: 0.02,
+      noiseTimeScale: 0.005,
       noiseOffset: 0,
       noiseOctaves: 0,
-      noiseFallout: 0,
-      noiseAngleScale: 0 * Math.PI,
+      noiseFallout: 0.65,
+      noiseAngleScale: 5 * Math.PI,
       noiseAngleOffset: 0,
-      initialVelocityForceScale: 0,
-      initialVelocityDecay: 0,
+      initialVelocityForceScale: 0.3,
+      initialVelocityDecay: 0.98,
       windForceScale: 0,
       windAngle: Math.PI,
       rotateAnglesAroundSymmetryAxis: true,
-      friction: 100,
+      friction: 0,
       restingDistance: 0,
       rigidity: 0,
       symType: 'point',
-      symNumRotations: 0,
+      symNumRotations: 1,
       symMirror: true,
       symCenter: 'centerScreen',
       symCenterX: 0,
       symCenterY: 0,
-      spiralCopies: 0,
-      spiralAngle: 0 * Math.PI,
+      spiralCopies: 1,
+      spiralAngle: 0.75 * Math.PI,
       curve: null,
       originalLogicalWidth: null,
       originalLogicalHeight: null,
@@ -662,7 +662,7 @@
       this.ctx.fill();
       this.ctx.fillStyle = fillStyle;
       this.ctx.globalCompositeOperation = 'source-over';
-      this.ctx.strokeWidth = 0.5;
+      this.ctx.strokeWidth = 10.5;
       this.ctx.stroke();
       return this.ctx.closePath();
     };
@@ -2879,3 +2879,4 @@
   })(this));
 
 }).call(this);
+;
